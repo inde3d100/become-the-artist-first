@@ -1,0 +1,436 @@
+/* The finale: the people, the complete map, the closing and the sources. */
+
+.finale {
+  position: relative;
+  z-index: 2;
+  padding: 34vh var(--gutter) 0;
+  background: linear-gradient(180deg, rgba(7, 6, 5, 0) 0, var(--night) 24vh);
+}
+/* A curtain: a dark section between two groups of beats. The camera changes its place behind it. */
+.finale--curtain {
+  padding-bottom: 34vh;
+  background: linear-gradient(
+    180deg,
+    rgba(7, 6, 5, 0) 0,
+    var(--night) 24vh,
+    var(--night) calc(100% - 24vh),
+    rgba(7, 6, 5, 0) 100%
+  );
+}
+/* The dark part of a curtain is taller than the screen, so the cut stays out of sight. */
+.finale--curtain > section {
+  min-height: 88vh;
+  padding-bottom: 0;
+}
+.finale > section {
+  max-width: 82rem;
+  margin-inline: auto;
+}
+
+/* ---------- people ---------- */
+
+.crowd {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: center;
+  padding-bottom: 22vh;
+}
+.crowd__facts {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: start;
+  gap: 2.2rem;
+}
+.crowd__facts dt {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 2.6vw, 2.5rem);
+  line-height: 1;
+  color: var(--gold-hi);
+}
+.crowd__facts dd {
+  margin: 0.5rem 0 0;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+/* The section without the photos. The public copy uses it while the photos with students stay private.
+   The title takes the full width. The words of Teo and the facts sit side by side. */
+@media (min-width: 901px) and (orientation: landscape) {
+  /* The rail of the page shows a label near the right edge. The text stays clear of this label. */
+  .crowd--plain {
+    grid-template-columns: minmax(0, 1fr);
+    padding-right: 4.5rem;
+  }
+  .crowd--plain > div {
+    display: grid;
+    grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+    column-gap: clamp(2rem, 6vw, 6rem);
+    align-items: center;
+  }
+  .crowd--plain .eyebrow,
+  .crowd--plain .title {
+    grid-column: 1 / -1;
+  }
+  .crowd--plain .title {
+    font-size: clamp(3rem, 6.6vw, 6.8rem);
+  }
+  .crowd--plain .say,
+  .crowd--plain .crowd__facts {
+    margin-top: 3rem;
+  }
+  .crowd--plain .crowd__facts {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+  .crowd--plain .crowd__facts div {
+    display: grid;
+    grid-template-columns: 6.5rem minmax(0, 1fr);
+    align-items: baseline;
+    padding: 1.15rem 0;
+    border-top: 1px solid var(--hair-soft);
+  }
+  .crowd--plain .crowd__facts div:last-child {
+    border-bottom: 1px solid var(--hair-soft);
+  }
+  .crowd--plain .crowd__facts dt {
+    font-size: clamp(2.2rem, 3.6vw, 3.4rem);
+  }
+  .crowd--plain .crowd__facts dd {
+    margin: 0;
+  }
+}
+.collage {
+  position: relative;
+  aspect-ratio: 10 / 9;
+}
+.collage figure {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  box-shadow: 0 2.5rem 5rem rgba(0, 0, 0, 0.65), 0 0 0 1px var(--hair-soft);
+  transform: translate3d(0, calc(var(--p, 0) * var(--d, 0) * 1vh), 0) rotate(var(--turn, 0deg));
+}
+.collage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.82) contrast(1.05) sepia(0.14);
+  transition: filter 0.8s var(--ease), transform 1.2s var(--ease);
+}
+.collage figure:hover img {
+  filter: none;
+  transform: scale(1.03);
+}
+.collage__a {
+  left: 0;
+  top: 4%;
+  width: 56%;
+  aspect-ratio: 1;
+  --d: -6;
+  --turn: -1.5deg;
+}
+.collage__b {
+  right: 0;
+  top: 0;
+  width: 50%;
+  aspect-ratio: 16 / 10;
+  --d: 5;
+  --turn: 1.2deg;
+}
+.collage__c {
+  right: 6%;
+  bottom: 0;
+  width: 46%;
+  aspect-ratio: 1;
+  --d: -12;
+  --turn: 0.6deg;
+}
+
+/* ---------- the map ---------- */
+
+.map {
+  padding-bottom: 20vh;
+}
+.map__legend {
+  margin-top: 1.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 2rem;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.map__legend > span {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.map__legend > span::before {
+  content: "";
+  flex: none;
+  width: 2.6rem;
+  border-top: 2px solid var(--gold);
+}
+.map__legend .is-influence::before {
+  border-top: 1px dashed var(--ink-soft);
+}
+/* The open map shows the part that the reader came from. The same ring marks its node. */
+.map__legend > .map__here {
+  color: var(--ink);
+}
+.map__legend > .map__here::before {
+  width: 0.8rem;
+  height: 0.8rem;
+  border: 2px solid var(--ember);
+  border-radius: 50%;
+}
+.map__here-step {
+  color: var(--gold-hi);
+}
+.map__scroll {
+  margin-top: 2.4rem;
+  overflow-x: auto;
+  border: 1px solid var(--hair-soft);
+  border-radius: 1rem;
+  background: radial-gradient(ellipse at 50% 40%, #17130e 0%, #0b0907 70%);
+}
+.map svg {
+  width: 100%;
+  min-width: 60rem;
+  height: auto;
+  /* A low screen keeps a readable map. The page scrolls then. */
+  max-height: max(26rem, calc(100vh - 17rem));
+}
+.map text {
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 600;
+  fill: var(--ink);
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+/* The Greek names are longer. They stay inside the node. */
+html[lang="el"] .map .node text {
+  font-size: 14px;
+}
+.map .sub,
+html[lang="el"] .map .node .sub {
+  font-size: 12px;
+  font-weight: 500;
+  fill: var(--ink-mute);
+}
+.map .group rect {
+  fill: rgba(245, 239, 228, 0.025);
+  stroke: var(--hair-soft);
+}
+.map .group text,
+.map .edge-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  fill: var(--ink-mute);
+}
+.map .group text {
+  text-anchor: start;
+  text-transform: uppercase;
+}
+.map .edge-label {
+  font-size: 11.5px;
+  letter-spacing: 0.03em;
+}
+/* A label next to a line starts or ends at that line. A long text then stays clear of the line. */
+.map .edge-label--start {
+  text-anchor: start;
+}
+.map .edge-label--end {
+  text-anchor: end;
+}
+.map .node {
+  cursor: pointer;
+}
+.map .node rect {
+  fill: #15110c;
+  stroke: var(--gold);
+  stroke-width: 1.4;
+  transition: fill 0.3s var(--ease);
+}
+/* The node of the part that the reader came from. The focus ring below still wins. */
+.map .node.is-here rect {
+  stroke: var(--ember);
+  stroke-width: 3;
+  stroke-dasharray: none;
+}
+.map .node:hover rect,
+.map .node:focus-visible rect {
+  fill: #2a2110;
+}
+/* The focus ring of a link inside the picture: some browsers draw no outline there. */
+.map .node:focus-visible rect {
+  stroke: var(--gold-hi);
+  stroke-width: 3;
+}
+.map .node--key rect {
+  fill: var(--gold);
+}
+/* The gold node keeps a light ground, so its dark text stays readable. */
+.map .node--key:hover rect,
+.map .node--key:focus-visible rect {
+  fill: var(--gold-hi);
+}
+.map .node--key text {
+  fill: var(--night);
+}
+.map .node--key .sub {
+  fill: #3a2c08;
+}
+.map .node--inf rect {
+  stroke: var(--ink-mute);
+  stroke-width: 1;
+  stroke-dasharray: 5 4;
+}
+.map .edge {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 2;
+}
+.map .edge--inf {
+  stroke: var(--ink-mute);
+  stroke-width: 1.2;
+  stroke-dasharray: 5 5;
+}
+.map .edge--strong {
+  stroke-width: 3;
+}
+.map .node,
+.map .edge,
+.map .edge-label {
+  transition: opacity 0.35s var(--ease);
+}
+.map svg.has-focus .node,
+.map svg.has-focus .edge,
+.map svg.has-focus .edge-label {
+  opacity: 0.22;
+}
+.map svg.has-focus .is-lit,
+.map svg.has-focus .node.is-here {
+  opacity: 1;
+}
+/* The ring around that node. It moves only when the reader lets the page move. */
+.map__halo {
+  fill: none;
+  stroke: var(--ember);
+  stroke-width: 2;
+  opacity: 0.6;
+  pointer-events: none;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: map-here 2s var(--ease) infinite;
+}
+@keyframes map-here {
+  from {
+    opacity: 0.95;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.18);
+  }
+}
+.map__line {
+  margin-top: 2rem;
+  font-family: var(--serif);
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  color: var(--ink-soft);
+}
+
+/* ---------- closing ---------- */
+
+.closing {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  padding-bottom: 16vh;
+}
+.closing__line {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(2.6rem, 7.4vw, 7.4rem);
+  line-height: 0.96;
+  letter-spacing: -0.025em;
+}
+.closing__line em {
+  display: block;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold-hi);
+}
+.closing__ask {
+  margin-top: 2.4rem;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.3rem, 2.3vw, 2.1rem);
+  color: var(--ink-soft);
+}
+.closing__logo {
+  width: clamp(9rem, 16vw, 13rem);
+  height: auto;
+  margin-top: 5rem;
+}
+.closing__by {
+  margin-top: 1.6rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.closing__link {
+  display: inline-block;
+  margin-top: 1.4rem;
+  padding: 0.85rem 1.6rem;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--gold-hi);
+  transition: background 0.3s var(--ease), color 0.3s var(--ease);
+}
+.closing__link:hover {
+  background: var(--gold);
+  color: var(--night);
+}
+
+/* ---------- sources ---------- */
+
+.sources {
+  padding-bottom: 9rem;
+  border-top: 1px solid var(--hair-soft);
+}
+.sources summary {
+  padding: 1.4rem 0;
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.sources ul {
+  display: grid;
+  gap: 0.9rem;
+  max-width: 54rem;
+  font-size: 0.88rem;
+  color: var(--ink-mute);
+}
+.sources b {
+  font-weight: 600;
+  color: var(--ink-soft);
+}

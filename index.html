@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Become the Artist First — Rhythm &amp; Body</title>
+<meta name="description" content="A seminar by Teo IDT. The road from the hours to the Maestro: Ear, Brain, Body, Heart, then Copy, Transform, Create.">
+<meta name="theme-color" content="#070605">
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/brand/latin-grow-23-years-logo.png">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/stage.css">
+<link rel="stylesheet" href="css/chapters.css">
+<link rel="stylesheet" href="css/widgets.css">
+<link rel="stylesheet" href="css/finale.css">
+<link rel="stylesheet" href="css/modes.css">
+<script src="assets/tour/tour.js" defer></script>
+<script src="assets/sounds/kit.js" defer></script>
+<script src="js/copy-el.js" defer></script>
+<script src="js/util.js" defer></script>
+<script src="js/tour-data.js" defer></script>
+<script src="js/tour.js" defer></script>
+<script src="js/audio.js" defer></script>
+<script src="js/rhythm.js" defer></script>
+<script src="js/i18n.js" defer></script>
+<script src="js/map.js" defer></script>
+<script src="js/pins.js" defer></script>
+<script src="js/scroll.js" defer></script>
+<script src="js/present.js" defer></script>
+<script src="js/main.js" defer></script>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Become the Artist First — Rhythm &amp; Body">
+<meta property="og:description" content="A seminar by Teo IDT. The road from the hours to the Maestro: Ear, Brain, Body, Heart, then Copy, Transform, Create.">
+<meta property="og:url" content="https://inde3d100.github.io/become-the-artist-first/">
+<meta property="og:image" content="https://inde3d100.github.io/become-the-artist-first/assets/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<a class="skip" href="#road" data-i18n="skip">Go to the text</a>
+
+<div class="stage" aria-hidden="true">
+  <canvas id="stage-canvas"></canvas>
+  <div class="stage__shade"></div>
+  <div class="stage__grain"></div>
+</div>
+
+<header class="top">
+  <a class="brand" href="#cover" data-go="cover">
+    <img src="assets/brand/latin-grow-23-years-logo.png" width="44" height="44" alt="Latin Grow, 23 years of salsa community">
+    <span>Rhythm &amp; Body</span>
+  </a>
+  <div class="tools">
+    <button class="tool" type="button" data-action="map" aria-pressed="false" data-i18n="tool.map">Map</button>
+    <button class="tool" type="button" data-action="present" aria-pressed="false" data-i18n="tool.stage">Stage</button>
+    <button class="tool" type="button" data-action="language" aria-label="Ελληνικά" lang="el">ΕΛ</button>
+  </div>
+</header>
+
+<nav class="rail" aria-label="The path" data-i18n-label="rail.label">
+  <ol>
+    <li><a href="#road" data-go="road" data-places="cover road"><span data-i18n="rail.road">The road</span></a></li>
+    <li><a href="#ear" data-go="ear" data-places="ear"><span data-i18n="n.ear">Ear</span></a></li>
+    <li><a href="#brain" data-go="brain" data-places="brain"><span data-i18n="n.brain">Brain</span></a></li>
+    <li><a href="#body" data-go="body" data-places="body"><span data-i18n="n.body">Body</span></a></li>
+    <li><a href="#heart" data-go="heart" data-places="heart"><span data-i18n="n.heart">Heart</span></a></li>
+    <li><a href="#copy" data-go="copy" data-places="copy"><span data-i18n="n.copy">Copy</span></a></li>
+    <li><a href="#transform" data-go="transform" data-places="transform"><span data-i18n="n.transform">Transform</span></a></li>
+    <li><a href="#create" data-go="create" data-places="create"><span data-i18n="n.create">Create</span></a></li>
+    <li class="is-influence"><a href="#tolstoy" data-go="tolstoy" data-places="tolstoy lenses"><span data-i18n="n.tolstoy">Tolstoy</span></a></li>
+    <li class="is-influence"><a href="#chut" data-go="chut" data-places="chut"><span data-i18n="n.chut">Chut-chut</span></a></li>
+    <li><a href="#maestro" data-go="maestro" data-places="maestro"><span data-i18n="n.maestro">Maestro</span></a></li>
+    <li class="is-influence"><a href="#pause" data-go="pause" data-places="pause"><span data-i18n="n.ma">Ma</span></a></li>
+    <li><a href="#others" data-go="others" data-places="others"><span data-i18n="n.others">Others</span></a></li>
+    <li><a href="#map" data-go="map" data-places="map"><span data-i18n="n.map">The map</span></a></li>
+    <li><a href="#walk-1" data-go="walk-1" data-places="walk-1 walk-2 walk-3"><span data-i18n="rail.legacy">The legacy</span></a></li>
+    <li><a href="#crowd" data-go="crowd" data-places="crowd people closing"><span data-i18n="n.people">People</span></a></li>
+  </ol>
+</nav>
+<div class="progress" aria-hidden="true"></div>
+
+<main id="main">
+<div class="beats">
+
+<section class="beat beat--cover" id="cover" data-stop="drumhead" data-shade="0.35" data-mix="conga" data-min="5">
+  <div class="cover">
+    <p class="cover__meta"><span data-i18n="cover.kicker">Rhythm &amp; Body · Seminar</span><span data-i18n="cover.time">Latin Grow · 60 minutes</span></p>
+    <h1 class="cover__title"><span data-i18n="cover.t1">Become</span> <span data-i18n="cover.t2">the <em>Artist</em></span> <span data-i18n="cover.t3">First</span></h1>
+    <div class="cover__foot">
+      <p class="cover__sub" data-i18n="cover.sub">From the Hours to the Maestro</p>
+      <p class="cover__motto" data-i18n="cover.motto">“Give lines, not rails.”</p>
+      <p class="cover__by">Teo IDT</p>
+    </div>
+    <p class="hint" data-i18n="cover.hint">Scroll</p>
+  </div>
+</section>
+
+<section class="beat" id="road" data-stop="conga" data-mix="conga" data-min="3">
+  <div class="panel">
+    <p class="eyebrow"><span data-i18n="road.e">Foundation</span><span class="min" data-i18n="min.3">3 min</span></p>
+    <h2 class="title" data-i18n="road.t">Feeling Needs a <em>Road</em></h2>
+    <p class="lede" data-i18n="road.l">Skill gives feeling somewhere to travel.</p>
+    <ol class="points" role="list">
+      <li data-i18n="road.p1">Feeling is present from your first class.</li>
+      <li data-i18n="road.p2">Listening, understanding and movement make it shareable.</li>
+      <li data-i18n="road.p3">Practice matters. “10,000 hours” is shorthand—not a threshold or guarantee.</li>
+    </ol>
+    <div class="note">
+      <p data-i18n="road.nq">The number is an average from one study of violin students. It is not a rule.</p>
+      <cite data-i18n="road.nc">Ericsson, Krampe and Tesch-Römer, 1993</cite>
+    </div>
+    <div class="cue"><p class="cue__label" data-i18n="cue.where">Where we are</p><p data-i18n="road.c">Keep the feeling.<br>Build its road.</p></div>
+  </div>
+</section>
+
+<section class="beat beat--far" id="ear" data-stop="ear" data-mix="conga" data-min="3">
+  <div class="panel">
+    <p class="eyebrow"><span data-i18n="ear.e">Listen + move</span><span class="min" data-i18n="min.3">3 min</span></p>
+    <h2 class="title" data-i18n="ear.t">Ear — Learning to <em>Hear</em></h2>
+    <p class="lede" data-i18n="ear.l">Before choosing a movement, notice what the music gives you.</p>
+    <ol class="points" role="list">
+      <li data-i18n="ear.p1">Hear rhythm, instruments, phrasing and space—not only a count.</li>
+      <li data-i18n="ear.p2">The Ear gives the Brain something to understand.</li>
+      <li data-i18n="ear.p3">Movement also shapes listening: Ear and Body teach each other.</li>
+    </ol>
+    <div class="voices" role="group" aria-label="The band" data-i18n-label="ear.band">
+      <button class="voice" type="button" data-voice="conga" aria-pressed="false" data-i18n="voice.conga">Conga</button>
+      <button class="voice" type="button" data-voice="clave" aria-pressed="false" data-i18n="voice.clave">Clave</button>
+      <button class="voice" type="button" data-voice="campana" aria-pressed="false" data-i18n="voice.campana">Campana</button>
+      <button class="voice" type="button" data-voice="bass" aria-pressed="false" data-i18n="voice.bass">Bass</button>
+    </div>
+    <div class="cue cue--try"><p class="cue__label" data-i18n="cue.try">Try it</p><p data-i18n="ear.c">Listen to the conga.<br>Move side to side. Listen again.</p></div>
+    <div class="note">
+      <p class="q" data-i18n="ear.nq">“The clave doesn't change; the feeling changes.”</p>
+      <cite>Tito Puente</cite>
+    </div>
+  </div>
+</section>
+
+<section class="beat" id="brain" data-stop="count" data-mix="conga clave" data-pulse data-min="3">
+  <div class="panel">
+    <p class="eyebrow"><span data-i18n="brain.e">Understanding</span><span class="min" data-i18n="min.3">3 min</span></p>
+    <h2 class="title" data-i18n="brain.t">Brain — Understanding What You <em>Hear</em></h2>
+    <p class="lede" data-i18n="brain.l">Turn what you notice into a clear decision.</p>
+    <ol class="points" role="list">
+      <li data-i18n="brain.p1">Recognise structure rather than chase the next remembered figure.</li>
+      <li data-i18n="brain.p2">Connect what the Ear hears to what the Body can do.</li>
+      <li data-i18n="brain.p3">Understanding helps you recover when a plan stops working.</li>
+    </ol>
+    <div class="grid"></div>
+    <p class="grid-text" data-i18n="brain.grid">Eight counts. The clave plays on 2, 3, 5, 6-and, 8. The conga speaks with open tones on 4 and 8.</p>
+    <p class="aside-line" data-i18n="brain.breath">4 and 8 are open rings. That is The Breath: the pause stays alive.</p>
+    <div class="cue"><p class="cue__label" data-i18n="cue.ask">Ask yourself</p><p data-i18n="brain.c">What am I hearing?<br>What choice does it support?</p></div>
+  </div>
+</section>
+
+<section class="beat" id="body" data-stop="body" data-loop="sway" data-pulse data-mix="conga clave campana" data-min="4">
+  <div class="panel">
+    <p class="eyebrow"><span data-i18n="body.e">Movement demo</span><span class="min" data-i18n="min.4">4 min</span></p>
+    <h2 class="title" data-i18n="body.t">Body — Understanding Becomes <em>Movement</em></h2>
+    <p class="lede" data-i18n="body.l">What you know must become something you can do.</p>
+    <ol class="points" role="list">
+      <li data-i18n="body.p1">Embody timing, weight and connection—not just a shape.</li>
+      <li data-i18n="body.p2">Let the arms follow the body instead of forcing decoration.</li>
+      <li data-i18n="body.p3">Move, listen, adjust: the Body sends information back to the Ear.</li>
+    </ol>
+    <div class="cue cue--try"><p class="cue__label" data-i18n="cue.try">Try it</p><p data-i18n="body.c">Small side-to-side movement.<br>Keep rhythm and weight clear.</p></div>
+    <div class="note">
+      <p data-i18n="body.nq">How you move can shape the beat you hear.</p>
+      <cite data-i18n="body.nc">Phillips-Silver and Trainor · Science, 2005 · small studies</cite>
+    </div>
+  </div>
+</section>
+
+<section class="beat" id="heart" data-stop="heart" data-mix="all" data-min="3">
+  <div class="panel">
+    <p class="eyebrow"><span data-i18n="heart.e">Expression</span><span class="min" data-i18n="min.3">3 min</span></p>
+    <h2 class="title" data-i18n="heart.t">Heart — Giving Feeling a <em>Way Through</em></h2>
+    <p class="lede" data-i18n="heart.l">Feeling was already there. Now it has a clearer channel.</p>
+    <ol class="points" role="list">
+      <li data-i18n="heart.p1">Rhythm, understanding and embodiment support expression.</li>
+      <li data-i18n="heart.p2">Joy, energy or nostalgia can travel through your dancing.</li>
+      <li data-i18n="heart.p3">Heart leads into the artist’s work: Copy, Transform, Create.</li>
+    </ol>
+    <blockquote class="say">
+      <p data-i18n="heart.q">“The body learns the movement so that the person has room to appear inside it.”</p>
+      <cite>Teo IDT</cite>
+    </blockquote>
+    <div class="cue"><p class="cue__label" data-i18n="cue.where">Where we are</p><p data-i18n="heart.c">Not the start of emotion.<br>A way for it to reach someone.</p></div>
+  </div>
+</section>
+
+<section class="beat" id="copy" data-stop="copy" data-mix="all" data-min="3">
+  <div class="panel">
+    <p class="eyebrow"><span data-i18n="copy.e">The artist’s work</span><span class="min" data-i18n="min.3">3 min</span></p>
+    <h2 class="title" data-i18n="copy.t">Copy — A <em>Starting Point</em></h2>
+    <p class="lede" data-i18n="copy.l">Learn the form without mistaking it for the destination.</p>
+    <ol class="points" role="list">
+      <li data-i18n="copy.p1">Copy a clear example to discover rhythm, weight and mechanics.</li>
+      <li data-i18n="copy.p2">First embody the movement. Then transform it.</li>
+      <li data-i18n="copy.p3">The teacher gives lines—not rails that trap every choice.</li>
+    </ol>
+    <div class="cue"><p class="cue__label" data-i18n="cue.where">Where we are</p><p data-i18n="copy.c">Copy the form.<br>Find the principle inside it.</p></div>
+    <div class="note">
+      <p data-i18n="copy.nq">Other arts walk the same three steps. Shuhari is a Japanese model of learning, used in tea ceremony, Noh and the martial arts. “Imitate, assimilate, innovate” is a formula credited to trumpeter Clark Terry.</p>
+    </div>
+  </div>
+</section>
+
+<section class="beat" id="transform" data-stop="transform" data-mix="all" data-min="4">
+  <div class="panel">
+    <p class="eyebrow"><span data-i18n="transform.e">Explore</span><span class="min" data-i18n="min.4">4 min</span></p>
+    <h2 class="title" data-i18n="transform.t">Transform — Make It <em>Your Own</em></h2>
+    <p class="lede" data-i18n="transform.l">What you learn passes through who you are.</p>
+    <ol class="points" role="list">
+      <li data-i18n="transform.p1">Adapt the form through your own body and understanding.</li>
+      <li data-i18n="transform.p2">Graham’s influence: your expression is unique—not borrowed personality.</li>
+      <li data-i18n="transform.p3">Explore only while rhythm, weight and connection stay clear.</li>
+    </ol>
+    <div class="note">
+      <p class="q" data-i18n="transform.nq">“…because there is only one of you in all of time, this expression is unique.”</p>
+      <cite data-i18n="transform.nc">Martha Graham to Agnes de Mille, 1943, as de Mille tells it</cite>
+    </div>
+    <blockquote class="say">
+      <p data-i18n="transform.q">“When rhythm is clear, your body stops forcing. When your body relaxes, expression appears.”</p>
+      <cite>Teo IDT</cite>
+    </blockquote>
+    <div class="cue cue--try"><p class="cue__label" data-i18n="cue.try">Try it</p><p data-i18n="transform.c">Shorten or prolong a movement.<br>What must remain connected?</p></div>
+  </div>
+</section>
+
+<section class="beat" id="create" data-stop="create" data-mix="all" data-min="3">
+  <div class="panel">
+    <p class="eyebrow"><span data-i18n="create.e">Transmission</span><span class="min" data-i18n="min.3">3 min</span></p>
+    <h2 class="title" data-i18n="create.t">Create — Passing Something <em>On</em></h2>
+    <p class="lede" data-i18n="create.l">The point is not novelty. It is meaningful expression.</p>
+    <ol class="points" role="list">
+      <li data-i18n="create.p1">What you learned becomes something you can share.</li>
+      <li data-i18n="create.p2">Your understanding and personality shape what reaches others.</li>
+      <li data-i18n="create.p3">The artist already passes feeling on—Maestro is further along the road.</li>
+    </ol>
+    <div class="cue"><p class="cue__label" data-i18n="cue.ask">Ask yourself</p><p data-i18n="create.c">What reaches your partner—<br>the shape, or the feeling?</p></div>
+  </div>
+</section>
+
+<section class="beat" id="tolstoy" data-between="create,chut,0.34" data-mix="conga bass" data-min="3">
+  <div class="panel">
+    <p class="eyebrow eyebrow--influence"><span data-i18n="tolstoy.e">An outside lens</span><span class="min" data-i18n="min.3">3 min</span></p>
+    <h2 class="title" data-i18n="tolstoy.t">Tolstoy — Art Passes a <em>Feeling</em> On</h2>
+    <p class="lede" data-i18n="tolstoy.l">A lens from What Is Art?—applied here to social dancing.</p>
+    <div class="note note--key">
+      <!-- ste-disable-next-line dictionary/not-approved-word -->
+      <p class="q" data-i18n="tolstoy.nq">“Art is a human activity, consisting in this, that one man consciously, by means of certain external signs, hands on to others feelings he has lived through, and that other people are infected by these feelings, and also experience them.”</p>
+      <cite data-i18n="tolstoy.nc">Leo Tolstoy · What Is Art?, chapter V · translation by Aylmer Maude</cite>
+    </div>
+    <ol class="points" role="list">
+      <li data-i18n="tolstoy.p1">Art communicates a feeling from one person to another.</li>
+      <li data-i18n="tolstoy.p2">Outward effects alone do not guarantee that feeling travels.</li>
+      <li data-i18n="tolstoy.p3">Three conditions: individuality, clearness and sincerity.</li>
+    </ol>
+    <div class="cue"><p class="cue__label" data-i18n="cue.source">Source lens</p><p data-i18n="tolstoy.c">What Is Art? · V, XII, XV<br>Interpretation—not a scientific test.</p></div>
+  </div>
+</section>
+
+<section class="beat" id="lenses" data-between="create,chut,0.68" data-mix="conga bass" data-min="4">
+  <div class="panel">
+    <p class="eyebrow eyebrow--influence"><span data-i18n="lenses.e">Discuss</span><span class="min" data-i18n="min.4">4 min</span></p>
+    <h2 class="title" data-i18n="lenses.t">Individuality, Clearness, <em>Sincerity</em></h2>
+    <p class="lede" data-i18n="lenses.l">Three lenses for the artist’s work—not three more stages.</p>
+    <dl class="lenses">
+      <div class="lens"><dt data-i18n="lenses.d1">Individuality</dt><dd data-i18n="lenses.x1">Feeling passes through your understanding and personality.</dd></div>
+      <div class="lens"><dt data-i18n="lenses.d2">Clearness</dt><dd data-i18n="lenses.x2">Make the intention readable, not buried in complexity.</dd></div>
+      <div class="lens"><dt data-i18n="lenses.d3">Sincerity</dt><dd data-i18n="lenses.x3">Communicate a feeling you genuinely have.</dd></div>
+    </dl>
+    <div class="note">
+      <p class="q" data-i18n="lenses.nq">“Therefore this third condition—sincerity—is the most important of the three.”</p>
+      <cite data-i18n="lenses.nc">Leo Tolstoy · What Is Art?, chapter XV</cite>
+    </div>
+    <div class="cue"><p class="cue__label" data-i18n="cue.discuss">Discussion</p><p data-i18n="lenses.c">When does a simple movement<br>say more than a complex one?</p></div>
+  </div>
+</section>
+
+<section class="beat" id="chut" data-stop="chut" data-loop="chut" data-mix="conga bass" data-min="3">
+  <div class="panel">
+    <p class="eyebrow eyebrow--influence"><span data-i18n="chut.e">Subtle difference</span><span class="min" data-i18n="min.3">3 min</span></p>
+    <h2 class="title" data-i18n="chut.t">Chut-Chut — Just a <em>Little Bit</em></h2>
+    <p class="lede" data-i18n="chut.l">A small difference can make the work come alive.</p>
+    <div class="note note--key">
+      <p class="q" lang="ru">«Искусство начинается там, где начинается чуть-чуть»</p>
+      <!-- ste-disable-next-line dictionary/not-approved-word -->
+      <p class="q" data-i18n="chut.nq">“Art begins where the wee bit begins.”</p>
+      <cite data-i18n="chut.nc">Karl Bryullov, as Tolstoy tells it · What Is Art?, chapter XII</cite>
+    </div>
+    <ol class="points" role="list">
+      <li data-i18n="chut.p1">Tolstoy recounts Bryullov bringing a sketch alive with a few touches.</li>
+      <li data-i18n="chut.p2">In this teaching interpretation, the artist works for that subtle difference.</li>
+      <li data-i18n="chut.p3">The Maestro finds it effortlessly—not by adding more movement.</li>
+    </ol>
+    <div class="chut">
+      <label for="chut-range" data-i18n="chut.slider">The same movement, a small change</label>
+      <input id="chut-range" type="range" min="0" max="100" value="0" step="1">
+      <p class="chut__ends" aria-hidden="true"><span data-i18n="chut.a">correct</span><span data-i18n="chut.b">alive</span></p>
+    </div>
+    <div class="note">
+      <!-- ste-disable-next-line dictionary/not-approved-word -->
+      <p class="q" data-i18n="chut.sq">“The teaching of the schools stops there where the wee bit begins—consequently where art begins.”</p>
+      <cite data-i18n="chut.sc">Leo Tolstoy · What Is Art?, chapter XII</cite>
+    </div>
+    <p class="text only-read" data-i18n="chut.x">A school cannot hand you the little bit. A school can build the road to it: Ear, Brain, Body, Heart.</p>
+    <div class="cue cue--try"><p class="cue__label" data-i18n="cue.try">Try it</p><p data-i18n="chut.c">Same movement, a small change.<br>What makes the feeling clearer?</p></div>
+  </div>
+</section>
+
+<section class="beat" id="maestro" data-between="chut,pause,0.16" data-mix="all" data-min="3">
+  <div class="panel">
+    <p class="eyebrow"><span data-i18n="maestro.e">Further along</span><span class="min" data-i18n="min.3">3 min</span></p>
+    <h2 class="title" data-i18n="maestro.t">Maestro — Beyond the <em>Form</em></h2>
+    <p class="lede" data-i18n="maestro.l">The same road, with less visible effort.</p>
+    <ol class="points" role="list">
+      <li data-i18n="maestro.p1">In Teo’s frame, the Maestro’s understanding is deeply embodied.</li>
+      <li data-i18n="maestro.p2">Others feel it through the dance, without an explanation.</li>
+      <li data-i18n="maestro.p3">Others learn it when the thinking and preparation are made clear.</li>
+    </ol>
+    <blockquote class="say">
+      <p data-i18n="maestro.q">“A maestro teaches thinking. An artist teaches screaming. A maestro often teaches without words.”</p>
+      <cite>Teo IDT</cite>
+    </blockquote>
+    <div class="note">
+      <p class="q" data-i18n="maestro.nq">“…if one seeks the safety of rules, one will not get beyond competence.”</p>
+      <cite>Stuart Dreyfus, 2004</cite>
+    </div>
+    <div class="cue"><p class="cue__label" data-i18n="cue.where">Where we are</p><p data-i18n="maestro.c">Not a claim of superiority.<br>A standard for transmission.</p></div>
+  </div>
+</section>
+
+<section class="beat" id="pause" data-stop="pause" data-quiet data-shade="0.7" data-mix="none" data-min="4">
+  <div class="panel">
+    <p class="glyph" lang="ja" aria-hidden="true">間</p>
+    <p class="eyebrow eyebrow--influence"><span data-i18n="pause.e">Pause demo</span><span class="min" data-i18n="min.4">4 min</span></p>
+    <h2 class="title" data-i18n="pause.t">Ma — The Living <em>Pause</em></h2>
+    <p class="lede" data-i18n="pause.l">The space between actions remains part of the work.</p>
+    <ol class="points" role="list">
+      <li data-i18n="pause.p1">A meaningful pause connects one action to the next.</li>
+      <li data-i18n="pause.p2">Students practise it through the Body, while learning the form.</li>
+      <li data-i18n="pause.p3">In this map, the Maestro lives in it effortlessly.</li>
+      <li data-i18n="pause.p4">Ma is not a breathing exercise or another name for The Breath.</li>
+    </ol>
+    <p class="aside-line" data-i18n="pause.x">The band stops here. Listen to the room.</p>
+    <div class="note">
+      <p class="q" data-i18n="pause.nq">“the moments of ‘no-action’ (senu tokoro) are the most enjoyable”</p>
+      <cite data-i18n="pause.nc">Spectators of Noh, as Zeami tells it · Kakyō</cite>
+    </div>
+    <div class="cue cue--try"><p class="cue__label" data-i18n="cue.try">Try it</p><p data-i18n="pause.c">Hold a pause without disconnecting.<br>Let the next action grow from it.</p></div>
+  </div>
+</section>
+
+<section class="beat" id="others" data-stop="fork" data-leave="fork,tree,0.3" data-mix="all" data-min="4">
+  <div class="panel panel--wide">
+    <!-- ste-disable-next-line dictionary/not-approved-word -->
+    <p class="eyebrow"><span data-i18n="others.e">Demonstrate + explain</span><span class="min" data-i18n="min.4">4 min</span></p>
+    <h2 class="title" data-i18n="others.t">Others <em>Feel</em> It. Others <em>Learn</em> It.</h2>
+    <p class="lede" data-i18n="others.l">Transmitting a feeling and teaching its thinking are different acts.</p>
+    <div class="ways">
+      <div class="way"><h3 data-i18n="others.h1">Others <em>feel</em> it</h3><p data-i18n="others.p1">Feeling can pass directly through the experience of dancing.</p></div>
+      <div class="way way--learn"><h3 data-i18n="others.h2">Others <em>learn</em> it</h3><p data-i18n="others.p2">Learning needs principles, preparation and clear decisions.</p></div>
+    </div>
+    <!-- ste-disable-next-line dictionary/not-approved-word -->
+    <p class="text" data-i18n="others.p3">A useful demonstration reveals how—not just what to admire.</p>
+    <div class="cue"><p class="cue__label" data-i18n="cue.compare">Compare</p><p data-i18n="others.c">Watch it once.<br>Then hear the principle and try it.</p></div>
+  </div>
+</section>
+
+</div>
+
+<div class="pins">
+  <div class="pin" data-anchor="conga_head" data-beats="cover">
+    <button class="tap" type="button" data-action="power" aria-pressed="false"><span class="tap__label" data-i18n="pin.tap">Tap the drum</span></button>
+  </div>
+  <div class="pin" data-anchor="conga_head" data-beats="ear">
+    <button class="tap" type="button" data-voice="conga" aria-pressed="false"><span class="tap__label" data-i18n="voice.conga">Conga</span></button>
+  </div>
+  <div class="pin" data-anchor="claves" data-beats="ear">
+    <button class="tap" type="button" data-voice="clave" aria-pressed="false"><span class="tap__label" data-i18n="voice.clave">Clave</span></button>
+  </div>
+  <div class="pin" data-anchor="campana" data-beats="ear">
+    <button class="tap" type="button" data-voice="campana" aria-pressed="false"><span class="tap__label" data-i18n="voice.campana">Campana</span></button>
+  </div>
+  <div class="pin" data-anchor="break" data-beats="walk-2"><span class="tag tag--up" data-i18n="pin.break">The break</span></div>
+  <div class="pin" data-anchor="stud_1" data-beats="brain"><span class="stud" data-count="1"></span><span class="stud__n" aria-hidden="true">1</span></div>
+  <div class="pin" data-anchor="stud_2" data-beats="brain"><span class="stud" data-count="2"></span><span class="stud__n" aria-hidden="true">2</span></div>
+  <div class="pin" data-anchor="stud_3" data-beats="brain"><span class="stud" data-count="3"></span><span class="stud__n" aria-hidden="true">3</span></div>
+  <div class="pin" data-anchor="stud_4" data-beats="brain"><span class="stud stud--breath" data-count="4"></span><span class="stud__n" aria-hidden="true">4</span></div>
+  <div class="pin" data-anchor="stud_5" data-beats="brain"><span class="stud" data-count="5"></span><span class="stud__n" aria-hidden="true">5</span></div>
+  <div class="pin" data-anchor="stud_6" data-beats="brain"><span class="stud" data-count="6"></span><span class="stud__n" aria-hidden="true">6</span></div>
+  <div class="pin" data-anchor="stud_7" data-beats="brain"><span class="stud" data-count="7"></span><span class="stud__n" aria-hidden="true">7</span></div>
+  <div class="pin" data-anchor="stud_8" data-beats="brain"><span class="stud stud--breath" data-count="8"></span><span class="stud__n" aria-hidden="true">8</span></div>
+  <div class="pin" data-anchor="body_chest" data-beats="heart"><span class="ember"></span></div>
+  <div class="pin" data-anchor="copy_teacher" data-beats="copy"><span class="tag tag--up" data-i18n="pin.teacher">Teacher</span></div>
+  <div class="pin" data-anchor="copy_student" data-beats="copy"><span class="tag tag--up" data-i18n="pin.student">Student</span></div>
+  <div class="pin" data-anchor="create_pool" data-beats="create" data-reach="4">
+    <figure class="figure">
+      <img src="assets/photos/teo-figure.webp" width="879" height="1300" alt="Teo IDT on stage in a beige suit, one knee up">
+      <img class="figure__mirror" src="assets/photos/teo-figure.webp" width="879" height="1300" alt="">
+      <figcaption data-i18n="pin.teo">Teo IDT on stage</figcaption>
+    </figure>
+  </div>
+  <p class="years" aria-hidden="true"><span class="years__n">1</span><span class="years__label years__label--one" data-i18n="pin.year">year on the road</span><span class="years__label years__label--many" data-i18n="pin.years">years on the road</span></p>
+</div>
+
+<div class="finale finale--curtain finale--map">
+
+<section class="map" id="map" data-step data-min="5" aria-labelledby="map-title">
+  <p class="eyebrow"><span data-i18n="map.e">Recap + discussion</span><span class="min" data-i18n="min.5">5 min</span></p>
+  <h2 class="title" id="map-title" data-i18n="map.t">The Whole <em>Map</em></h2>
+  <p class="lede" data-i18n="map.l">A teaching map: train the channel, develop your expression, pass something on.</p>
+  <p class="map__legend"><span data-i18n="map.k1">Solid gold: the path</span><span class="is-influence" data-i18n="map.k2">Dashed: influences—not extra stages</span><span class="map__here" id="map-here" hidden><span data-i18n="map.here">You are here</span> <span class="map__here-step"></span></span></p>
+  <div class="map__scroll">
+    <svg viewBox="0 0 1300 660" role="group" aria-label="The whole map" data-i18n-label="map.label">
+      <defs>
+        <marker id="tip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--gold)"/></marker>
+        <marker id="tip-soft" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--ink-mute)"/></marker>
+      </defs>
+      <g class="group"><rect x="22" y="104" width="532" height="166" rx="14"/><text x="38" y="124" data-i18n="map.g1">The hours</text></g>
+      <g class="group"><rect x="582" y="104" width="400" height="166" rx="14"/><text x="598" y="124" data-i18n="map.g2">The artist’s work</text></g>
+
+      <path class="edge" data-a="ear" data-b="brain" d="M146,210 H164" marker-end="url(#tip)"/>
+      <path class="edge" data-a="brain" data-b="body" d="M278,210 H296" marker-end="url(#tip)"/>
+      <path class="edge" data-a="body" data-b="heart" d="M410,210 H428" marker-end="url(#tip)"/>
+      <path class="edge" data-a="heart" data-b="copy" d="M542,210 H592" marker-end="url(#tip)"/>
+      <path class="edge" data-a="copy" data-b="transform" d="M706,210 H724" marker-end="url(#tip)"/>
+      <path class="edge" data-a="transform" data-b="create" d="M838,210 H856" marker-end="url(#tip)"/>
+      <path class="edge" data-a="create" data-b="maestro" d="M914,236 V390" marker-end="url(#tip)"/>
+      <path class="edge" data-a="create" data-b="feel" d="M880,236 C790,300 690,430 700,572" marker-end="url(#tip)"/>
+      <path class="edge" data-a="maestro" data-b="feel" d="M880,448 L742,572" marker-end="url(#tip)"/>
+      <path class="edge edge--strong" data-a="ma" data-b="maestro" d="M410,420 H846" marker-end="url(#tip)"/>
+      <path class="edge edge--inf" data-a="ear" data-b="body" d="M90,182 C90,138 354,138 354,182" marker-start="url(#tip-soft)" marker-end="url(#tip-soft)"/>
+      <path class="edge edge--inf" data-a="graham" data-b="transform" d="M782,62 V182" marker-end="url(#tip-soft)"/>
+      <path class="edge edge--inf" data-a="tolstoy" data-b="individuality" d="M1150,62 V118" marker-end="url(#tip-soft)"/>
+      <path class="edge edge--inf" data-a="individuality" data-b="create" d="M1075,140 C1030,140 1020,200 972,206" marker-end="url(#tip-soft)"/>
+      <path class="edge edge--inf" data-a="clearness" data-b="create" d="M1075,196 C1040,196 1010,208 972,210" marker-end="url(#tip-soft)"/>
+      <path class="edge edge--inf" data-a="sincerity" data-b="create" d="M1075,252 C1030,252 1020,220 972,214" marker-end="url(#tip-soft)"/>
+      <path class="edge edge--inf" data-a="tolstoy" data-b="chut" d="M1206,40 C1262,40 1262,90 1262,140 V330 C1262,380 1200,376 1178,394" marker-end="url(#tip-soft)"/>
+      <path class="edge edge--inf" data-a="chut" data-b="maestro" d="M1091,420 H982" marker-end="url(#tip-soft)"/>
+      <path class="edge edge--inf" data-a="ma" data-b="body" d="M354,394 V240" marker-end="url(#tip-soft)"/>
+      <path class="edge edge--inf" data-a="maestro" data-b="learn" d="M948,448 L1086,572" marker-end="url(#tip-soft)"/>
+
+      <text class="edge-label" data-a="ear" data-b="body" x="222" y="138" data-i18n="map.x1">they teach each other</text>
+      <text class="edge-label edge-label--start" data-a="create" data-b="maestro" x="926" y="316" data-i18n="map.x2">beyond the form</text>
+      <text class="edge-label" data-a="clearness" data-b="create" x="1030" y="128" data-i18n="map.x3">worked for</text>
+      <text class="edge-label" data-a="chut" data-b="maestro" x="1034" y="380" data-i18n="map.x4">found effortlessly</text>
+      <text class="edge-label edge-label--start" data-a="ma" data-b="body" x="366" y="318" data-i18n="map.x5">practised</text>
+      <text class="edge-label" data-a="ma" data-b="maestro" x="630" y="404" data-i18n="map.x6">used effortlessly</text>
+      <text class="edge-label edge-label--end" data-a="create" data-b="feel" x="758" y="341" data-i18n="map.x7">works for the chut-chut</text>
+      <text class="edge-label edge-label--start" data-a="maestro" data-b="feel" x="816" y="524" data-i18n="map.x8">spreads it effortlessly</text>
+      <text class="edge-label edge-label--start" data-a="maestro" data-b="learn" x="1052" y="524" data-i18n="map.x9">teaches the thinking behind it</text>
+
+      <a class="node" href="#ear" data-go="ear" data-node="ear"><rect x="34" y="184" width="112" height="52" rx="10"/><text x="90" y="202" data-i18n="n.ear">Ear</text> <text class="sub" x="90" y="221" data-i18n="map.s1">hear</text></a>
+      <a class="node" href="#brain" data-go="brain" data-node="brain"><rect x="166" y="184" width="112" height="52" rx="10"/><text x="222" y="202" data-i18n="n.brain">Brain</text> <text class="sub" x="222" y="221" data-i18n="map.s2">understand</text></a>
+      <a class="node" href="#body" data-go="body" data-node="body"><rect x="298" y="184" width="112" height="52" rx="10"/><text x="354" y="202" data-i18n="n.body">Body</text> <text class="sub" x="354" y="221" data-i18n="map.s3">embody</text></a>
+      <a class="node" href="#heart" data-go="heart" data-node="heart"><rect x="430" y="184" width="112" height="52" rx="10"/><text x="486" y="202" data-i18n="n.heart">Heart</text> <text class="sub" x="486" y="221" data-i18n="map.s4">express</text></a>
+      <a class="node" href="#copy" data-go="copy" data-node="copy"><rect x="594" y="184" width="112" height="52" rx="10"/><text x="650" y="210" data-i18n="n.copy">Copy</text></a>
+      <a class="node" href="#transform" data-go="transform" data-node="transform"><rect x="726" y="184" width="112" height="52" rx="10"/><text x="782" y="210" data-i18n="n.transform">Transform</text></a>
+      <a class="node" href="#create" data-go="create" data-node="create"><rect x="858" y="184" width="112" height="52" rx="10"/><text x="914" y="210" data-i18n="n.create">Create</text></a>
+      <a class="node node--key" href="#maestro" data-go="maestro" data-node="maestro"><rect x="850" y="392" width="128" height="56" rx="12"/><text x="914" y="420" data-i18n="n.maestro">Maestro</text></a>
+      <a class="node" href="#others" data-go="others" data-node="feel"><rect x="618" y="574" width="164" height="52" rx="10"/><text x="700" y="600" data-i18n="map.feel">Others feel it</text></a>
+      <a class="node" href="#others" data-go="others" data-node="learn"><rect x="1042" y="574" width="172" height="52" rx="10"/><text x="1128" y="600" data-i18n="map.learn">Others learn it</text></a>
+      <a class="node node--inf" href="#transform" data-go="transform" data-node="graham"><rect x="726" y="18" width="112" height="44" rx="10"/><text x="782" y="40">Graham</text></a>
+      <a class="node node--inf" href="#tolstoy" data-go="tolstoy" data-node="tolstoy"><rect x="1094" y="18" width="112" height="44" rx="10"/><text x="1150" y="40" data-i18n="n.tolstoy">Tolstoy</text></a>
+      <a class="node node--inf" href="#lenses" data-go="lenses" data-node="individuality"><rect x="1075" y="120" width="150" height="40" rx="10"/><text x="1150" y="140" data-i18n="lenses.d1">Individuality</text></a>
+      <a class="node node--inf" href="#lenses" data-go="lenses" data-node="clearness"><rect x="1075" y="176" width="150" height="40" rx="10"/><text x="1150" y="196" data-i18n="lenses.d2">Clearness</text></a>
+      <a class="node node--inf" href="#lenses" data-go="lenses" data-node="sincerity"><rect x="1075" y="232" width="150" height="40" rx="10"/><text x="1150" y="252" data-i18n="lenses.d3">Sincerity</text></a>
+      <a class="node node--inf" href="#chut" data-go="chut" data-node="chut"><rect x="1091" y="394" width="118" height="52" rx="10"/><text x="1150" y="412" data-i18n="n.chut">Chut-chut</text> <text class="sub" x="1150" y="431" data-i18n="map.s5">just a little bit</text></a>
+      <a class="node node--inf" href="#pause" data-go="pause" data-node="ma"><rect x="298" y="394" width="112" height="52" rx="10"/><text x="354" y="412" data-i18n="n.ma">Ma</text> <text class="sub" x="354" y="431" data-i18n="map.s6">the living pause</text></a>
+    </svg>
+  </div>
+  <p class="sr" data-i18n="map.text">The path goes from Ear to Brain, Body, Heart, Copy, Transform, Create and the Maestro. Ear and Body teach each other. Graham is an influence on Transform. Tolstoy gives Create three conditions: individuality, clearness and sincerity. Tolstoy also names the chut-chut. The artist works for it. The Maestro finds it effortlessly. The Body practises Ma, the living pause. The Maestro uses it effortlessly. Then others feel it, and others learn the thinking behind it.</p>
+  <p class="map__line" data-i18n="map.line">Hear → Understand → Embody → Express. Copy → Transform → Create.</p>
+</section>
+
+</div>
+
+<div class="beats">
+
+<section class="beat" id="walk-1" data-stop="walk_a" data-enter="conga,walk_a,0.45" data-year="1" data-mix="conga">
+  <div class="panel">
+    <p class="eyebrow"><span data-i18n="walk1.e">Teo’s road · Sofia</span></p>
+    <h2 class="title" data-i18n="walk1.t">It started by <em>accident</em></h2>
+    <blockquote class="say">
+      <p data-i18n="walk1.q">“I was training rugby at the time, walked past a party one night, saw people moving to music in a way that made me stop and stare. The next day I signed up for salsa lessons. I never went back to rugby.”</p>
+      <cite>Teo IDT</cite>
+    </blockquote>
+  </div>
+</section>
+
+<section class="beat" id="walk-2" data-stop="walk_break" data-year="8" data-mix="conga">
+  <div class="panel">
+    <p class="eyebrow"><span data-i18n="walk2.e">Teo’s road · about eight years in</span></p>
+    <h2 class="title" data-i18n="walk2.t">“I knew <em>nothing</em>.”</h2>
+    <p class="text" data-i18n="walk2.x">The line breaks here. Teo returns to the base: rhythm first, then the body. Rhythm &amp; Body grows from this break.</p>
+    <blockquote class="say">
+      <p data-i18n="walk2.q">“If we use the rhythm, melody will follow.<br>If we learn body, movement will follow.”</p>
+      <cite>Teo IDT</cite>
+    </blockquote>
+  </div>
+</section>
+
+<section class="beat" id="walk-3" data-stop="walk_b" data-leave="walk_b,ear,0.45" data-year="23" data-mix="conga clave">
+  <div class="panel">
+    <p class="eyebrow"><span data-i18n="walk3.e">Teo’s road · today</span></p>
+    <h2 class="title" data-i18n="walk3.t">“Walk long so you can <em>teach short</em>.”</h2>
+    <blockquote class="say">
+      <!-- ste-disable-next-line dictionary/not-approved-word -->
+      <p data-i18n="walk3.q">“After 23 years, I still consider myself a beginner. The method teaches humility and the constant search for knowledge — in body and in rhythm.”</p>
+      <cite>Teo IDT</cite>
+    </blockquote>
+    <div class="note">
+      <p class="q" data-i18n="walk3.nq">“Shoshin wasuru bekarazu.” Remember your original intention.</p>
+      <cite data-i18n="walk3.nc">Zeami · Kakyō</cite>
+    </div>
+  </div>
+  <figure class="float float--tall">
+    <img src="assets/photos/teo-street.webp" width="998" height="1500" alt="Teo IDT outdoors in a lilac T-shirt" loading="lazy">
+    <figcaption>Teo IDT</figcaption>
+  </figure>
+</section>
+
+</div>
+
+<div class="finale finale--curtain">
+
+<section class="crowd crowd--plain" id="crowd" data-step>
+  <div>
+    <p class="eyebrow"><span data-i18n="crowd.e">The movement</span></p>
+    <h2 class="title" data-i18n="crowd.t">Each student is an <em>owner</em></h2>
+    <blockquote class="say">
+      <p data-i18n="crowd.q">“Latin Grow is a movement. When someone asks me if it is mine, the answer is that everyone who is going through the dance education ‘Rhythm and Body’ … is the owner and representative.”</p>
+      <cite>Teo IDT</cite>
+    </blockquote>
+    <dl class="crowd__facts">
+      <div><dt>23+</dt><dd data-i18n="crowd.f1">years of salsa community</dd></div>
+      <div><dt>2</dt><dd data-i18n="crowd.f2">cities: Komotini, Alexandroupolis</dd></div>
+      <div><dt>1</dt><dd data-i18n="crowd.f3">method: Rhythm &amp; Body</dd></div>
+    </dl>
+  </div>
+</section>
+
+</div>
+
+<div class="beats">
+
+<section class="beat beat--tree" id="people" data-stop="tree" data-enter="fork,tree,0.5" data-shade="0.6" data-mix="all">
+  <div class="panel">
+    <p class="eyebrow"><span data-i18n="people.e">Latin Grow · 23+ years</span></p>
+    <h2 class="title" data-i18n="people.t">The masterpiece is <em>people</em></h2>
+    <blockquote class="say">
+      <p data-i18n="people.q">“I would like my masterpiece to not be a dance or choreography but people.”</p>
+      <cite>Teo IDT</cite>
+    </blockquote>
+  </div>
+</section>
+
+</div>
+
+<div class="finale">
+
+<section class="closing" id="closing" data-step>
+  <p class="closing__line" data-i18n="closing.t">Keep the feeling. <em>Build its road.</em></p>
+  <p class="closing__ask" data-i18n="closing.ask">What will you practise differently?</p>
+  <img class="closing__logo" src="assets/brand/latin-grow-23-years-logo.png" width="1018" height="1018" alt="Latin Grow, 23 years of salsa community" loading="lazy">
+  <p class="closing__by">Teo IDT · Rhythm &amp; Body · Latin Grow</p>
+  <a class="closing__link" href="https://latingrowgreece.com" rel="noopener">latingrowgreece.com</a>
+</section>
+
+<details class="sources">
+  <summary data-i18n="sources.t">Sources and notes</summary>
+  <ul role="list">
+    <li data-i18n="sources.1"><b>Leo Tolstoy</b>, What Is Art? (1897), translation by Aylmer Maude. Chapters V, XII and XV.</li>
+    <li data-i18n="sources.2"><b>Martha Graham</b> to Agnes de Mille, 1943, as de Mille tells it in Martha (1991). It is a talk from memory, not a letter.</li>
+    <li data-i18n="sources.3"><b>Zeami</b>, Kakyō. The two lines come from published English translations.</li>
+    <li data-i18n="sources.4"><b>Tito Puente</b>, in Jim Payne’s Hall of Fame article for the Percussive Arts Society.</li>
+    <li data-i18n="sources.5"><b>Phillips-Silver and Trainor</b>, Science 308 (2005). The studies are small.</li>
+    <li data-i18n="sources.6"><b>Ericsson, Krampe and Tesch-Römer</b>, Psychological Review 100 (1993).</li>
+    <li data-i18n="sources.7"><b>Stuart Dreyfus</b>, 2004, on the five stages of skill.</li>
+    <li data-i18n="sources.8"><b>Shuhari</b> and <b>“Imitate, assimilate, innovate”</b> have no exact first source. The page says so.</li>
+    <li data-i18n="sources.9"><b>Teo IDT</b>: the words in gold come from Teo’s own notes and from the Latin Grow site.</li>
+    <li data-i18n="sources.sounds"><b>The sounds</b>: the conga, the campana and the bass are recordings from VCSL and VSCO 2 CE (Versilian Studios), D. Smolken and Lynx_5969 (Freesound). Each recording has the CC0 public-domain licence. The clave is a synthetic sound.</li>
+    <li data-i18n="sources.10">The outside voices are a lens. They are an interpretation—not a scientific test.</li>
+  </ul>
+</details>
+
+</div>
+</main>
+
+<div class="mixer" role="group" aria-label="Sound" data-i18n-label="mixer.label">
+  <button class="mixer__power" type="button" data-action="power" aria-pressed="false"><span class="mixer__bars" aria-hidden="true"><i></i><i></i><i></i></span><span data-i18n="mixer.sound">Sound</span></button>
+  <div class="mixer__voices">
+    <button class="voice" type="button" data-voice="conga" aria-pressed="false" data-i18n="voice.conga">Conga</button>
+    <button class="voice" type="button" data-voice="clave" aria-pressed="false" data-i18n="voice.clave">Clave</button>
+    <button class="voice" type="button" data-voice="campana" aria-pressed="false" data-i18n="voice.campana">Campana</button>
+    <button class="voice" type="button" data-voice="bass" aria-pressed="false" data-i18n="voice.bass">Bass</button>
+  </div>
+  <ol class="count" aria-hidden="true">
+    <li data-count="1">1</li><li data-count="2">2</li><li data-count="3">3</li><li class="is-breath" data-count="4">4</li>
+    <li data-count="5">5</li><li data-count="6">6</li><li data-count="7">7</li><li class="is-breath" data-count="8">8</li>
+  </ol>
+</div>
+
+<div class="deck" role="group" aria-label="Stage mode" data-i18n-label="deck.label">
+  <button type="button" data-action="previous" aria-label="Previous part" data-i18n-label="deck.previous">←</button>
+  <button type="button" data-action="next" aria-label="Next part" data-i18n-label="deck.next">→</button>
+  <span class="deck__number"></span>
+  <span class="deck__name"></span>
+  <span><span class="deck__minutes"></span> <span data-i18n="min.unit">min</span></span>
+  <span class="deck__clock">00:00</span>
+</div>
+
+</body>
+</html>

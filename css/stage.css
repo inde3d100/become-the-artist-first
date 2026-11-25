@@ -1,0 +1,504 @@
+/* The stage: the fixed 3D picture behind the text, and the parts tied to it. */
+
+.stage {
+  position: fixed;
+  inset: 0;
+  /* The picture keeps its size when the address bar of a phone moves. */
+  height: 100lvh;
+  z-index: 0;
+  overflow: clip;
+  background: radial-gradient(ellipse at 66% 58%, #2a1f10 0%, var(--night) 62%);
+}
+.stage canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: translate3d(calc(var(--tilt-x, 0) * -10px), calc(var(--tilt-y, 0) * -6px), 0) scale(1.03);
+}
+/* The picture fades in after the first frame is ready. */
+.js .stage canvas {
+  opacity: 0;
+  transition: opacity 1.2s var(--ease);
+}
+.js.is-live .stage canvas {
+  opacity: 1;
+}
+.stage__shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(7, 6, 5, 0.82) 0%, rgba(7, 6, 5, 0.5) 30%, rgba(7, 6, 5, 0) 56%),
+    linear-gradient(0deg, rgba(7, 6, 5, 0.6) 0%, rgba(7, 6, 5, 0) 24%, rgba(7, 6, 5, 0) 82%, rgba(7, 6, 5, 0.55) 100%);
+  opacity: var(--shade, 1);
+  transition: opacity 0.9s var(--ease);
+}
+.stage__grain {
+  position: absolute;
+  inset: -50%;
+  pointer-events: none;
+  opacity: 0.09;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* ---------- pins: parts that follow a point of the 3D picture ---------- */
+
+.pins {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  /* The same movement as the canvas, so each pin stays on its object. */
+  transform: translate3d(calc(var(--tilt-x, 0) * -10px), calc(var(--tilt-y, 0) * -6px), 0) scale(1.03);
+}
+.pin {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate3d(var(--x, -200px), var(--y, -200px), 0);
+  transition: opacity 0.6s var(--ease), visibility 0s linear 0.6s;
+}
+.pin.is-on {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.6s var(--ease), visibility 0s;
+}
+
+/* A round button on an object. */
+.tap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4.5rem;
+  height: 4.5rem;
+  margin: -2.25rem 0 0 -2.25rem;
+  border-radius: 50%;
+  border: 1px solid rgba(247, 220, 138, 0.75);
+  background: radial-gradient(circle, rgba(247, 220, 138, 0.3) 0%, rgba(247, 220, 138, 0) 68%);
+  pointer-events: auto;
+  transition: transform 0.4s var(--ease), background 0.4s var(--ease);
+}
+.tap::before,
+.tap::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  border: 1px solid rgba(247, 220, 138, 0.6);
+  animation: ring 2.6s var(--ease) infinite;
+}
+.tap::after {
+  animation-delay: 1.3s;
+}
+.tap:hover {
+  transform: scale(1.08);
+}
+.tap[aria-pressed="true"] {
+  background: radial-gradient(circle, rgba(239, 61, 37, 0.42) 0%, rgba(239, 61, 37, 0) 70%);
+  border-color: var(--ember);
+}
+.tap__label {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 0.7rem);
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-hi);
+  text-shadow: 0 1px 12px var(--night);
+}
+@keyframes ring {
+  from {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  to {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
+/* A small name next to an object, with a leader line. */
+.tag {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  transform: translate(1.1rem, -50%);
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink);
+  white-space: nowrap;
+  text-shadow: 0 1px 10px var(--night);
+}
+.tag::before {
+  content: "";
+  width: 2.6rem;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), rgba(226, 182, 40, 0.2));
+}
+.tag--up {
+  flex-direction: column;
+  gap: 0.5rem;
+  transform: translate(-50%, calc(-100% - 0.9rem));
+}
+.tag--up::before {
+  order: 2;
+  width: 1px;
+  height: 2.4rem;
+  background: linear-gradient(180deg, rgba(226, 182, 40, 0.2), var(--gold));
+}
+
+/* The count on the floor studs. */
+.stud {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3.4rem;
+  height: 3.4rem;
+  margin: -1.7rem 0 0 -1.7rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(247, 220, 138, 0.9) 0%, rgba(226, 182, 40, 0.35) 30%, rgba(226, 182, 40, 0) 68%);
+  mix-blend-mode: screen;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
+.stud.is-now {
+  opacity: 1;
+  transform: scale(1.25);
+  transition-duration: 0.06s;
+}
+.stud--breath {
+  background: radial-gradient(circle, rgba(247, 220, 138, 0) 34%, rgba(247, 220, 138, 0.75) 40%, rgba(226, 182, 40, 0) 62%);
+}
+.stud__n {
+  position: absolute;
+  left: 50%;
+  top: -2.1rem;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+  mix-blend-mode: normal;
+}
+
+/* The ember in the chest. */
+.ember {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 26vmin;
+  height: 26vmin;
+  margin: -13vmin 0 0 -13vmin;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(239, 61, 37, 0.55) 0%, rgba(239, 61, 37, 0.16) 36%, rgba(239, 61, 37, 0) 66%);
+  mix-blend-mode: screen;
+  animation: pulse 1.6s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(0.92);
+    opacity: 0.65;
+  }
+  18% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+  36% {
+    transform: scale(0.97);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 0.95;
+  }
+}
+
+/* The person in the pool of light. */
+.figure {
+  position: absolute;
+  left: 0;
+  top: 0;
+  /* The feet stand at 58% of the picture height. This height keeps the head below the top bar. */
+  height: var(--figure-h, 50vh);
+  aspect-ratio: 879 / 1300;
+  transform: translate(-39%, -97%);
+}
+.figure img {
+  width: 100%;
+  height: 100%;
+  filter: saturate(0.92) contrast(1.04) brightness(0.96) sepia(0.12);
+}
+.figure__mirror {
+  position: absolute;
+  left: 0;
+  top: 97%;
+  transform: scaleY(-1);
+  transform-origin: 50% 50%;
+  opacity: 0.26;
+  filter: blur(5px) saturate(0.8) brightness(0.8);
+  -webkit-mask-image: linear-gradient(0deg, #000 0%, transparent 58%);
+  mask-image: linear-gradient(0deg, #000 0%, transparent 58%);
+}
+.figure figcaption {
+  position: absolute;
+  left: 78%;
+  bottom: 9%;
+  white-space: nowrap;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+/* The year counter of the walk: fixed, not tied to a point. */
+.years {
+  position: absolute;
+  right: clamp(1.25rem, 6vw, 6rem);
+  bottom: 13vh;
+  text-align: right;
+  opacity: 0;
+  transition: opacity 0.7s var(--ease);
+}
+.years.is-on {
+  opacity: 1;
+}
+/* On a wide screen the rail shows the name of the part. The counter stays clear of that name. */
+@media (min-width: 901px) and (orientation: landscape) {
+  .years {
+    right: 10.5rem;
+  }
+}
+.years__n {
+  display: block;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(6rem, 15vw, 16rem);
+  line-height: 0.82;
+  letter-spacing: -0.03em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(247, 220, 138, 0.62);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.years__label {
+  display: block;
+  margin-top: 0.9rem;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  /* The label can lie on the gold line of the picture. The dark edge keeps it readable. */
+  text-shadow: 0 0 0.35rem var(--night), 0 0 0.9rem var(--night);
+}
+/* The counter shows one label: the form for one year, or the form for more years. */
+.years__label--one,
+.years.is-one .years__label--many {
+  display: none;
+}
+.years.is-one .years__label--one {
+  display: block;
+}
+
+/* ---------- fixed page furniture ---------- */
+
+.top {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem clamp(1rem, 2.4vw, 2rem);
+  pointer-events: none;
+  transition: opacity 0.8s var(--ease);
+}
+/* A soft shade behind the top bar: text that scrolls under it stays readable. */
+.top::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 -1.6rem 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(7, 6, 5, 0.92) 0%, rgba(7, 6, 5, 0.62) 55%, rgba(7, 6, 5, 0) 100%);
+  pointer-events: none;
+}
+.top > * {
+  pointer-events: auto;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.brand img {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+.tools {
+  display: flex;
+  gap: 0.5rem;
+}
+.tool {
+  min-width: 2.75rem;
+  height: 2.5rem;
+  padding: 0 0.9rem;
+  border: 1px solid var(--hair-soft);
+  border-radius: 999px;
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+.tool:hover,
+.tool[aria-pressed="true"] {
+  color: var(--gold-hi);
+  border-color: var(--hair);
+}
+
+/* The rail is the path of the map: solid dots are stages, dashed dots are influences. */
+.rail {
+  position: fixed;
+  right: clamp(0.9rem, 1.8vw, 1.6rem);
+  top: 50%;
+  z-index: 30;
+  transform: translateY(-50%);
+  transition: opacity 0.8s var(--ease);
+}
+.rail ol {
+  position: relative;
+  display: grid;
+  gap: 0.2rem;
+}
+.rail ol::before {
+  content: "";
+  position: absolute;
+  right: 0.3rem;
+  top: 0.6rem;
+  bottom: 0.6rem;
+  width: 1px;
+  background: linear-gradient(180deg, var(--gold) calc(var(--progress, 0) * 100%), rgba(226, 182, 40, 0.22) calc(var(--progress, 0) * 100%));
+}
+.rail a {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 0.7rem;
+  height: 1.25rem;
+  text-decoration: none;
+}
+.rail a::before {
+  content: "";
+  flex: none;
+  width: 0.45rem;
+  height: 0.45rem;
+  margin-right: 0.1rem;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  background: var(--night);
+  transition: transform 0.4s var(--ease), background 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+.rail .is-influence a::before {
+  border-style: dashed;
+  border-color: var(--ink-mute);
+}
+.rail span {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  opacity: 0;
+  transform: translateX(0.4rem);
+  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+  white-space: nowrap;
+  text-shadow: 0 1px 10px var(--night);
+}
+.rail:hover span,
+.rail a:focus-visible span,
+.rail a.is-current span {
+  opacity: 1;
+  transform: none;
+}
+.rail a.is-current span {
+  color: var(--gold-hi);
+}
+.rail a.is-current::before {
+  background: var(--gold);
+  transform: scale(1.5);
+  box-shadow: 0 0 0 5px rgba(226, 182, 40, 0.16);
+}
+
+.progress {
+  display: none;
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 31;
+  height: 2px;
+  background: var(--gold);
+  transform-origin: 0 50%;
+  transform: scaleX(var(--progress, 0));
+}
+
+.hint {
+  position: absolute;
+  left: 50%;
+  bottom: 1.5rem;
+  transform: translateX(-50%);
+  display: grid;
+  justify-items: center;
+  gap: 0.7rem;
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.hint::after {
+  content: "";
+  width: 1px;
+  height: 2.6rem;
+  background: linear-gradient(180deg, var(--gold), rgba(226, 182, 40, 0));
+  transform-origin: 50% 0;
+  animation: drop 2.2s var(--ease) infinite;
+}
+@keyframes drop {
+  0% {
+    transform: scaleY(0);
+    opacity: 1;
+  }
+  60% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 0;
+  }
+}

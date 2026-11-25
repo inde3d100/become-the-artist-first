@@ -1,0 +1,324 @@
+/* Modes: stage mode, small screens, no JavaScript, reduced motion and print. */
+
+/* ---------- stage mode: one beat at a time, for a room ---------- */
+
+/* One size rule for the room: the text follows the screen, wide or low. */
+html.is-present {
+  font-size: clamp(13px, min(1.05vw, 1.8vh), 30px);
+}
+/* Stage mode sets each position itself. The browser does not move the page when a text changes its size. */
+html.is-present,
+.is-present body {
+  overflow-anchor: none;
+}
+.is-present .panel {
+  width: min(100%, 44rem);
+}
+.is-present .title {
+  font-size: 4.1rem;
+}
+/* The text is larger in stage mode. This size keeps the cover title clear of the drum. */
+.is-present .cover__title {
+  font-size: clamp(3.4rem, 10.2vw, 10rem);
+}
+.is-present .only-read {
+  display: none;
+}
+.is-present .lede {
+  font-size: 1.9rem;
+}
+.is-present .points li {
+  font-size: 1.15rem;
+}
+.is-present .cue p {
+  font-size: 1.65rem;
+}
+.is-present .map .lede {
+  display: none;
+}
+.is-present .float {
+  left: calc(var(--gutter) + 47rem);
+}
+/* A wide screen in stage mode: the rail shows no names, so the counter returns to the edge.
+   The text and the photo are larger there, so a smaller counter stays clear of the photo. */
+@media (min-width: 901px) and (orientation: landscape) {
+  .is-present .years {
+    right: clamp(1.25rem, 6vw, 6rem);
+  }
+  .is-present .years__n {
+    font-size: clamp(6rem, 14vw, 13rem);
+  }
+}
+/* The presenter bar sits at the top, so the text can use the full height. */
+.is-present .deck {
+  left: 50%;
+  bottom: auto;
+  top: 0.9rem;
+  transform: translateX(-50%);
+}
+.is-present .note:not(.note--key),
+.is-present .aside-line,
+.is-present .hint {
+  display: none;
+}
+.is-present .rail span {
+  display: none;
+}
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 900px), (orientation: portrait) {
+  .rail {
+    display: none;
+  }
+  .progress {
+    display: block;
+  }
+  .brand span {
+    display: none;
+  }
+  .stage__shade {
+    background: linear-gradient(0deg, rgba(7, 6, 5, 0.94) 0%, rgba(7, 6, 5, 0.72) 34%, rgba(7, 6, 5, 0) 66%, rgba(7, 6, 5, 0.5) 100%);
+  }
+  .beat {
+    padding: 52vh 1.1rem 34vh;
+  }
+  .panel,
+  .panel--wide {
+    width: 100%;
+    padding: 1.3rem 1.15rem 1.4rem;
+    border-radius: 1rem;
+    background: linear-gradient(180deg, rgba(7, 6, 5, 0.6), rgba(7, 6, 5, 0.86));
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+  /* On a small screen the parts of a panel do not move against each other. */
+  .panel > * {
+    transform: none;
+  }
+  .beat--cover {
+    padding: 0 1.1rem;
+  }
+  .cover {
+    padding-block: 5.5rem 6rem;
+  }
+  .cover__meta {
+    inset: 4.6rem 0 auto 0;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .cover__by {
+    margin-left: 0;
+    width: 100%;
+  }
+  .float {
+    position: static;
+    width: min(100%, 22rem);
+    margin-top: 1.4rem;
+    transform: none;
+  }
+  .ways {
+    grid-template-columns: 1fr;
+  }
+  .lens {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+  .years {
+    right: 1.1rem;
+    bottom: auto;
+    top: 5.2rem;
+  }
+  .years__n {
+    font-size: 5.2rem;
+  }
+  .tag {
+    display: none;
+  }
+  .figure {
+    --figure-h: 31vh;
+  }
+  .figure figcaption {
+    display: none;
+  }
+  .mixer {
+    right: 0.7rem;
+    bottom: 0.7rem;
+    max-width: calc(100vw - 1.4rem);
+  }
+  .mixer.is-on .count {
+    display: none;
+  }
+  .mixer__voices {
+    overflow-x: auto;
+  }
+  .voice {
+    height: 2.4rem;
+    white-space: nowrap;
+  }
+  .grid__row {
+    grid-template-columns: 4.6rem 1fr;
+    gap: 0.4rem;
+  }
+  .finale {
+    padding-inline: 1.1rem;
+  }
+  .crowd {
+    grid-template-columns: 1fr;
+    padding-bottom: 14vh;
+  }
+  .crowd__facts {
+    gap: 1rem 1.4rem;
+    grid-template-columns: repeat(auto-fit, minmax(7.5rem, max-content));
+  }
+  /* The map picture keeps a readable text size. The reader moves it sideways. */
+  .map svg {
+    min-width: 76rem;
+  }
+  .is-present .deck {
+    left: 0.7rem;
+    top: auto;
+    bottom: 4rem;
+    transform: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .mixer.is-on .mixer__power span:last-child {
+    display: none;
+  }
+  .mixer.is-on .mixer__power {
+    padding: 0 0.8rem;
+  }
+}
+
+/* ---------- no JavaScript: a still page, each word visible ---------- */
+
+.no-js .stage {
+  background: var(--night) url("../assets/tour/f_0028.webp") center / cover no-repeat;
+}
+.no-js .pins,
+.no-js .mixer,
+.no-js .tools,
+.no-js .hint,
+.no-js .chut,
+.no-js .voices {
+  display: none;
+}
+
+/* ---------- no sound engine: the sound controls leave the page ---------- */
+
+.no-sound .mixer,
+.no-sound .voices,
+.no-sound .tap {
+  display: none;
+}
+
+/* ---------- reduced motion: no moving parts ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+  .panel > *,
+  .cover__title,
+  .cover__foot,
+  .collage figure {
+    transform: none;
+  }
+  .stage canvas,
+  .pins {
+    transform: none;
+  }
+}
+
+/* The photo beside the text keeps its centre. On a small screen it sits in the text flow. */
+@media (prefers-reduced-motion: reduce) and (min-width: 901px) and (orientation: landscape) {
+  .float {
+    transform: translateY(-50%);
+  }
+}
+
+/* ---------- a low, wide screen: a phone on its side ---------- */
+
+@media (max-height: 560px) and (orientation: landscape) {
+  .rail {
+    display: none;
+  }
+  .progress {
+    display: block;
+  }
+}
+
+/* ---------- the map as a full-screen layer ---------- */
+
+.is-map body {
+  overflow: hidden;
+}
+/* Only the section of the map goes above the page. The other dark sections stay below it. */
+.is-map .finale--map {
+  z-index: 29;
+}
+.is-map .map {
+  position: fixed;
+  inset: 0;
+  overflow: auto;
+  max-width: none;
+  padding: 6rem var(--gutter) 3rem;
+  background: var(--night);
+}
+.is-map .map .lede,
+.is-map .map__line {
+  display: none;
+}
+.is-map .map svg {
+  max-height: max(26rem, calc(100vh - 15rem));
+}
+.is-map .rail,
+.is-map .mixer,
+.is-map .deck,
+.is-map .progress {
+  display: none;
+}
+
+@media print {
+  :root {
+    --night: #fff;
+    --ink: #111;
+    --ink-soft: #2b2b2b;
+    --ink-mute: #555;
+    --gold: #7a5a10;
+    --gold-hi: #7a5a10;
+  }
+  .stage,
+  .pins,
+  .top,
+  .rail,
+  .mixer,
+  .deck,
+  .hint {
+    display: none;
+  }
+  body {
+    background: #fff;
+    color: #111;
+  }
+  .beat,
+  .beats > .beat:last-child {
+    padding: 1.5rem 0;
+  }
+  /* Paper needs no room for the camera. The dark sections keep only a small gap. */
+  .finale,
+  .finale--curtain {
+    padding-block: 1.5rem;
+  }
+  .finale--curtain > section {
+    min-height: 0;
+  }
+  .panel {
+    opacity: 1;
+  }
+}

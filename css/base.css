@@ -1,0 +1,345 @@
+/* Base: fonts, colour tokens, reset and the shared text parts. */
+
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("../assets/fonts/manrope-greek.woff2") format("woff2");
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("../assets/fonts/manrope-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Noto Serif Display";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../assets/fonts/noto-serif-display-greek.woff2") format("woff2");
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+@font-face {
+  font-family: "Noto Serif Display";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../assets/fonts/noto-serif-display-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Noto Serif Display";
+  font-style: italic;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../assets/fonts/noto-serif-display-greek-italic.woff2") format("woff2");
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+@font-face {
+  font-family: "Noto Serif Display";
+  font-style: italic;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../assets/fonts/noto-serif-display-latin-italic.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  --night: #070605;
+  --floor: #110e0b;
+  --ink: #f5efe4;
+  --ink-soft: #cdc4b4;
+  --ink-mute: #8f8778;
+  --gold: #e2b628;
+  --gold-hi: #f7dc8a;
+  --gold-deep: #8a6a1c;
+  --ember: #ef3d25;
+  --hair: rgba(226, 182, 40, 0.3);
+  --hair-soft: rgba(245, 239, 228, 0.13);
+  --glass: rgba(14, 12, 10, 0.62);
+  --serif: "Noto Serif Display", "Iowan Old Style", Georgia, serif;
+  --sans: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --gutter: clamp(1.25rem, 7vw, 7.5rem);
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  /* The text grows a little on a large screen. */
+  font-size: clamp(100%, 0.5vw + 0.55rem, 131.25%);
+  background: var(--night);
+  /* The space of the scroll bar stays when the map locks the scroll. */
+  scrollbar-gutter: stable;
+  /* A focused control stays clear of the top bar and of the sound bar. */
+  scroll-padding-block: 5.5rem 5rem;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--night);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+svg,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+p,
+ol,
+ul,
+figure,
+blockquote {
+  margin: 0;
+}
+
+ol,
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold-hi);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--night);
+}
+
+.skip {
+  position: fixed;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  padding: 0.6rem 1rem;
+  background: var(--gold);
+  color: var(--night);
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.skip:focus {
+  top: 1rem;
+}
+
+/* The hidden attribute wins over a display rule of a class. */
+[hidden] {
+  display: none !important;
+}
+/* A part that gets the focus from a link shows no ring. */
+[tabindex="-1"]:focus {
+  outline: none;
+}
+
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ---------- text parts ---------- */
+
+.eyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.eyebrow::before {
+  content: "";
+  width: 2.25rem;
+  height: 1px;
+  background: var(--gold);
+}
+.eyebrow--influence {
+  color: var(--ink-soft);
+}
+.eyebrow--influence::before {
+  background: none;
+  border-top: 1px dashed var(--ink-soft);
+}
+.eyebrow .min {
+  color: var(--ink-mute);
+}
+
+.title {
+  margin-top: 1.1rem;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(2.3rem, 4.9vw, 4.9rem);
+  line-height: 1.02;
+  letter-spacing: -0.018em;
+  text-wrap: balance;
+}
+.title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold-hi);
+}
+
+.lede {
+  margin-top: 1.4rem;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.25rem, 1.75vw, 1.7rem);
+  line-height: 1.32;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+.text {
+  margin-top: 1.1rem;
+  color: var(--ink-soft);
+  max-width: 34rem;
+  text-wrap: pretty;
+}
+
+.points {
+  margin-top: 1.6rem;
+  display: grid;
+  gap: 0.85rem;
+  counter-reset: point;
+}
+.points li {
+  counter-increment: point;
+  display: grid;
+  grid-template-columns: 2.25rem 1fr;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+.points li::before {
+  content: counter(point, decimal-leading-zero);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  padding-top: 0.32rem;
+}
+
+/* A cue is a task for the room: try, ask, compare. */
+.cue {
+  margin-top: 1.9rem;
+  padding: 1.05rem 1.25rem 1.15rem;
+  border: 1px solid var(--hair);
+  border-radius: 0.9rem;
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+.cue__label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.cue p {
+  margin-top: 0.45rem;
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 1.5vw, 1.45rem);
+  line-height: 1.3;
+}
+.cue--try {
+  border-color: rgba(239, 61, 37, 0.55);
+}
+.cue--try .cue__label {
+  color: var(--ember);
+}
+
+/* Teo's own words: solid gold rule. */
+.say {
+  margin-top: 1.8rem;
+  padding-left: 1.2rem;
+  border-left: 2px solid var(--gold);
+}
+.say p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.15rem, 1.55vw, 1.5rem);
+  line-height: 1.36;
+  text-wrap: pretty;
+}
+.say cite,
+.note cite {
+  display: block;
+  margin-top: 0.6rem;
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* An outside voice: dashed rule, as on the map. */
+.note {
+  margin-top: 1.6rem;
+  padding-left: 1.2rem;
+  border-left: 1px dashed var(--ink-mute);
+  font-size: 0.9rem;
+  color: var(--ink-mute);
+  text-wrap: pretty;
+}
+.note q,
+.note .q {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.08rem;
+  color: var(--ink-soft);
+  quotes: "“" "”";
+}
+.note cite {
+  color: var(--ink-mute);
+}
+
